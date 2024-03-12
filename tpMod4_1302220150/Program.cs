@@ -4,6 +4,12 @@ using System;
 
 
 KodePos nt = new KodePos();
+DoorMachine machine = new DoorMachine();
+
+static void main()
+{
+    DoorMachine.changeState();
+}
 Console.WriteLine(nt.getKodePos("Kujangsari"));
 Console.WriteLine("Hello, World!");
 
@@ -43,5 +49,18 @@ public class KodePos
 
 public class DoorMachine
 {
+    enum Doormachine { Terkunci, Terbuka };
+    Doormachine state = Doormachine.Terkunci;
+    String[] ScreenName = { "Terkunci", "Terbuka" };
+    
+    public void changeState()
+    {
+        while (state == Doormachine.Terkunci)
+        {
+            Console.WriteLine(ScreenName[(int)state] + " SCREEN");
+            Console.Write("Enter Command : ");
 
+            string command = Console.ReadLine();
+        }
+    }
 }
